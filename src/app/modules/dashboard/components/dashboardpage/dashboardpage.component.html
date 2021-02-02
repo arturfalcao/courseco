@@ -1,0 +1,21 @@
+<a routerLink="/" routerLinkActive="router-link-active">root</a>
+
+<table mat-table [dataSource]="dashboardService.productUpdate$" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <input matInput [(ngModel)]="desc">
+  <input matInput [(ngModel)]="price">
+  <button mat-button (click)="addMore()">submit</button>
